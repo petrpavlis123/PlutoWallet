@@ -1,1 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="PlutoWallet.Components.Extrinsic.ExtrinsicDetailPage"
+             xmlns:navigationbar="clr-namespace:PlutoWallet.Components.NavigationBar"
+             xmlns:confirmtransaction="clr-namespace:PlutoWallet.Components.ConfirmTransaction"             Title="MnemonicsExplanationPage"
+         BackgroundColor="Black">
+    <AbsoluteLayout AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 1" AbsoluteLayout.LayoutFlags="All">
 
+        <Image AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 1" AbsoluteLayout.LayoutFlags="All"
+           Source="{AppThemeBinding Light=whitebackground.png, Dark=darkbackground2.png}"
+           Opacity="{AppThemeBinding Light=0.96}"
+           Aspect="AspectFill"/>
+
+        <ScrollView Orientation="Vertical"
+                x:Name="scrollView"
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, 1, 1"
+                AbsoluteLayout.LayoutFlags="All"
+                Padding="0, 55, 0, 0">
+            <
+            Mnemonic Words and Their Importance
+
+            Mnemonic words are special sets of words often used to remember complex information, especially in the world of cryptocurrencies and digital wallets. When creating a digital wallet, for example, for the Polkadot ecosystem using PlutoWallet, you receive a random sequence of words that serve as a backup for your account. These words, also known as a seed phrase or recovery phrase, allow you to restore access to your cryptocurrencies in case you lose access to your device or software. Typically, it consists of a set of 10 words that are easy to remember and secure enough to prevent them from being easily guessed.
+
+            Safe Handling of Mnemonic Words
+
+            Proper care of mnemonic words is crucial for protecting your digital assets. You should never store these words digitally, such as on a computer or in the cloud, as this increases the risk of them being stolen by hackers. The safest method is to write these words on paper and store them in a secure place, such as a safe. It is also recommended to create several copies and store them in different locations to prevent loss due to fire or other disasters. It is important never to share these words with anyone because anyone who has access to these words has full access to your cryptocurrencies.
+
+            Additional Tips for Increasing Security
+
+            To further increase security, you might consider using a hardware wallet, a physical device that stores your mnemonic words and private keys offline, thereby minimizing the risk of online attacks. When using software wallets like PlutoWallet, always ensure that you are using the official app from a trusted source. Regular software updates and the use of strong passwords are additional key steps to protect your digital assets. Keep in mind that cryptocurrencies are still a relatively new technology and require a careful approach to security to keep your investments safe.
+
+>
+
+        </ScrollView>
+
+        <navigationbar:TopNavigationBar Title="Title of the page"
+                                    x:Name="topNavigationBar" />
+
+        <confirmtransaction:ConfirmTransactionView />
+
+    </AbsoluteLayout>
+
+</ContentPage>
+This will setup the correct background image, etc..
+
+Add the following 2 lines to the constructor:
+public MnemonicsExplanationPage()
+{
+    NavigationPage.SetHasNavigationBar(this, false);
+    Shell.SetNavBarIsVisible(this, false);
+
+    InitializeComponent();
+} 
